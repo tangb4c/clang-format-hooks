@@ -306,7 +306,7 @@ else # Diff-only.
     # --src-prefix and --dst-prefix to set the default prefixes explicitly. We
     # don't use the newer --default-prefix option because we want to support git
     # versions older than 2.41.
-    declare git_args=(git diff -U0 --no-color --src-prefix=a/ --dst-prefix=b/)
+    declare git_args=(git diff -U0 --no-color --src-prefix=a/ --dst-prefix=b/ --relative)
     [ "$staged" = true ] && git_args+=("--staged")
 
     # $format_diff may contain a command ("python") and the script to excute, so we
