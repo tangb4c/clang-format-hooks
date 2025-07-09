@@ -258,7 +258,8 @@ fi
     $'I expected it here:\n' \
     $'    ' "$apply_format"
 
-readonly style=$(cd "$top_dir" && git config hooks.clangFormatDiffStyle || echo file)
+# use env variable CLANG_FORMAT_STYLE, or file
+readonly style=$(cd "$top_dir" && git config hooks.clangFormatDiffStyle || echo ${CLANG_FORMAT_STYLE:-file})
 
 apply_format_opts=(
     "--style=$style"
